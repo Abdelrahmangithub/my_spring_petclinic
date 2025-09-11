@@ -46,21 +46,14 @@ pipeline {
         slacksend channel: '#social', 
                   color: 'good', 
                   message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} was successful! \nCheck it out at ${env.BUILD_URL}"
-        emailext subject: "Build Success: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
-                 body: "The pipeline ${env.JOB_NAME} build #${env.BUILD_NUMBER} succeeded.\nCheck details at ${env.BUILD_URL}",
-                 to: 'abdelrahmanayman000@gmail.com',
-                 mimeType: 'text/plain'
     }
     failure {
         slacksend channel: '#social', 
                   color: 'danger', 
                   message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. \nCheck it out at ${env.BUILD_URL}"
-        emailext subject: "Build Failed: ${env.JOB_NAME} - #${env.BUILD_NUMBER}",
-                 body: "The pipeline ${env.JOB_NAME} build #${env.BUILD_NUMBER} failed.\nCheck details at ${env.BUILD_URL}",
-                 to: 'abdelrahmanayman000@gmail.com',
-                 mimeType: 'text/plain'
     }
 }
 }
+
 
 
