@@ -43,17 +43,18 @@ pipeline {
         }
         success {
             slacksend{
-                channel: '#social', 
-                color: 'good', 
-                message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} was successful! \nCheck it out at ${env.BUILD_URL}"
+                channel: '#social',
+                color: 'good',
+                message: "✅ SUCCESS: Job ${env.JOB_NAME} Build #${env.BUILD_NUMBER} \nCheck it: ${env.BUILD_URL}"
             }
         }
         failure {
             slacksend{
-                channel: '#social', 
-                color: 'danger', 
-                message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. \nCheck it out at ${env.BUILD_URL}"
+                channel: '#social',
+                color: 'danger',
+                message: "❌ FAILURE: Job ${env.JOB_NAME} Build #${env.BUILD_NUMBER} \nCheck it: ${env.BUILD_URL}"
             }
         }
     }
 }
+
