@@ -32,8 +32,10 @@ pipeline {
         stage('run') {
             steps {
                 echo 'run...'
-                sh 'chmod +x deploy.sh'
-                sh './deploy.sh'
+                sh '''
+                    docker build -t spring-petclinic .
+                    docker run -d -p 9192:9966 spring-petclinic
+                ''' 
             }
         }
     }
@@ -54,6 +56,7 @@ pipeline {
     }
 }
 }
+
 
 
 
