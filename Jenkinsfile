@@ -32,6 +32,7 @@ pipeline {
         stage('run') {
             steps {
                 echo 'run...'
+                sh 'chmod +x deploy.sh'
                 sh './deploy.sh'
             }
         }
@@ -61,4 +62,5 @@ pipeline {
     }
 }
 }
+
 
