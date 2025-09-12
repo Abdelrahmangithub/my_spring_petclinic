@@ -40,6 +40,27 @@ pipeline {
         }
     }
 
+    post {
+    success {
+        withCredentials([string(credentialsId: 'slack-cred', variable: 'SLACK_TOKEN')]) {
+            slackSend (
+                channel: '#social',
+                tokenCredentialId: 'slack-cred',
+                message: "✅ Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} succeeded! \nURL: ${env.BUILD_URL}"
+            )
+        }
+    }
+    failure {
+        withCredentials([string(credentialsId: 'slack-cred', variable: 'SLACK_TOKEN')]) {
+            slackSend (
+                channel: '#social',
+                tokenCredentialId: 'slack-cred',
+                message: "❌ Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} failed! \nURL: ${env.BUILD_URL}"
+            )
+        }
+    }
+}
+
    /* post {
     always {
         echo 'This will always run after the stages finish.'
@@ -55,7 +76,10 @@ pipeline {
                   message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. \nCheck it out at ${env.BUILD_URL}"
     }
 }*/
+
+    
 }
+
 
 
 
