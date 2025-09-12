@@ -5,10 +5,10 @@ pipeline {
         jdk 'JDK 11'       // Ensure JDK is configured in Jenkins
     }*/
 
-    environment {
+    /*environment {
         // Define any environment variables here
         SLACK_TOKEN = credentials('slack-cred')
-    }
+    }*/
 
     stages {
         stage('Checkout') {
@@ -78,6 +78,7 @@ pipeline {
 
     
 }
+
 
 
 
