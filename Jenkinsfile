@@ -5,10 +5,10 @@ pipeline {
         jdk 'JDK 11'       // Ensure JDK is configured in Jenkins
     }*/
 
-    /*environment {
+    environment {
         // Define any environment variables here
-        WEB_HOOK_URL = credentials('slack-webhook-url')
-    }*/
+        SLACK_TOKEN = credentials('slack-cred')
+    }
 
     stages {
         stage('Checkout') {
@@ -42,22 +42,21 @@ pipeline {
 
     post {
     success {
-        withCredentials([string(credentialsId: 'slack-cred', variable: 'SLACK_TOKEN')]) {
+        
             slackSend (
                 channel: '#social',
                 tokenCredentialId: 'slack-cred',
                 message: "✅ Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} succeeded! \nURL: ${env.BUILD_URL}"
             )
-        }
+        
     }
     failure {
-        withCredentials([string(credentialsId: 'slack-cred', variable: 'SLACK_TOKEN')]) {
             slackSend (
                 channel: '#social',
                 tokenCredentialId: 'slack-cred',
                 message: "❌ Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} failed! \nURL: ${env.BUILD_URL}"
             )
-        }
+        
     }
 }
 
@@ -79,6 +78,7 @@ pipeline {
 
     
 }
+
 
 
 
