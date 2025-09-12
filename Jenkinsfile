@@ -40,7 +40,7 @@ pipeline {
         }
     }
 
-    post {
+   /* post {
     always {
         echo 'This will always run after the stages finish.'
     }
@@ -54,8 +54,9 @@ pipeline {
                   color: 'danger', 
                   message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. \nCheck it out at ${env.BUILD_URL}"
     }
+}*/
 }
-}
+
 
 
 
