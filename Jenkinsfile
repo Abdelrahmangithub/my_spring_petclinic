@@ -60,24 +60,11 @@ pipeline {
     }
 }
 
-   /* post {
-    always {
-        echo 'This will always run after the stages finish.'
-    }
-    success {
-        slacksend channel: '#social', 
-                  color: 'good', 
-                  message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} was successful! \nCheck it out at ${env.BUILD_URL}"
-    }
-    failure {
-        slacksend channel: '#social', 
-                  color: 'danger', 
-                  message: "The Pipeline ${env.JOB_NAME} - Build #${env.BUILD_NUMBER} has failed. \nCheck it out at ${env.BUILD_URL}"
-    }
-}*/
+
 
     
 }
+
 
 
 
