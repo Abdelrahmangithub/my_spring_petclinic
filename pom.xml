@@ -17,10 +17,12 @@
   <distributionManagement>
         <repository>
             <id>nexus-releases</id>
+            <name>Nexus Releases</name>
             <url>http://localhost:8081/repository/maven-releases_jenkins/</url>  <!-- Repo at nexus -->
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
+            <name>Nexus Snapshots</name>
             <url>http://localhost:8081/repository/maven-releases_jenkins/</url>  <!-- Repo at nexus -->
         </snapshotRepository>
   </distributionManagement>
