@@ -39,10 +39,15 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            def mvn = tool 'Default Maven';
+            steps {
+                withSonarQubeEnv() {
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.projectName=petclinic'
+                }
+            }
+         /*   def mvn = tool 'Default Maven';
             withSonarQubeEnv() {
                 sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.projectName='petclinic'"
-            }
+            }*/
         }
     }
 
@@ -70,6 +75,7 @@ pipeline {
 
     
 }
+
 
 
 
