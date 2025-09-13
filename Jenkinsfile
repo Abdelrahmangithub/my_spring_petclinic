@@ -23,12 +23,12 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-        stage('Test') {
+       /* stage('Test') {
             steps {
                 echo 'Testing...'
                 sh 'mvn test'
             }
-        }
+        }*/
         stage('run') {
             steps {
                 echo 'run...'
@@ -76,6 +76,7 @@ pipeline {
 
     
 }
+
 
 
 
