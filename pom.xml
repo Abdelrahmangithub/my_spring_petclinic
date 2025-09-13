@@ -14,6 +14,12 @@
   <version>3.5.0-SNAPSHOT</version>
 
   <name>petclinic</name>
+  <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:8081/repository/maven-releases_jenkins/</url>  <!-- Repo at nexus -->
+        </repository>
+  </distributionManagement>
 
   <properties>
 
@@ -444,13 +450,4 @@
       </build>
     </profile>
   </profiles>
-
-  <distributionManagement>
-    <repository>
-        <id>nexus-releases</id>
-        <url>http://localhost:8081/repository/maven-releases_jenkins/</url>
-    </repository>
-  </distributionManagement>
-
-
 </project>
