@@ -38,6 +38,11 @@ pipeline {
                 ''' 
             }
         }
+        stage('SonarQube Analysis') {
+            withSonarQubeEnv() {
+                sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.projectName='petclinic'"
+            }
+        }
     }
 
     post {
@@ -64,6 +69,7 @@ pipeline {
 
     
 }
+
 
 
 
