@@ -33,6 +33,7 @@ pipeline {
             steps {
                 echo 'run...'
                 sh '''
+                    docker rm -f spring-petclinic
                     docker build -t spring-petclinic .
                     docker run -d -p 9193:9966 spring-petclinic
                 ''' 
@@ -76,6 +77,7 @@ pipeline {
 
     
 }
+
 
 
 
