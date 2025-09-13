@@ -40,7 +40,8 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv() {
+                withSonarQubeEnv('sonarLocal') {
+                    /*sonarLocal is the server that i created in manage jenkins ==> system ==> sonarqube after download sonarqube plugin */
                     sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.projectName=petclinic'
                 }
             }
@@ -75,6 +76,7 @@ pipeline {
 
     
 }
+
 
 
 
