@@ -54,7 +54,9 @@ pipeline {
         }
         stage('Deploy to Nexus') {
             steps {
-                sh "mvn deploy -s /var/lib/jenkins/.m2/settings.xml"
+                sh """
+                    mvn deploy -DaltDeploymentRepository=nexus-releases::http://localhost:8081/repository/maven-releases_jenkins/ -s /var/lib/jenkins/.m2/settings.xml
+                """
             }
         }
     }
@@ -83,6 +85,7 @@ pipeline {
 
     
 }
+
 
 
 
