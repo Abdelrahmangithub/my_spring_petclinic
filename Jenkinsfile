@@ -5,10 +5,11 @@ pipeline {
         jdk 'JDK 11'       // Ensure JDK is configured in Jenkins
     }*/
 
-    /*environment {
+    environment {
         // Define any environment variables here
-        SLACK_TOKEN = credentials('slack-cred')
-    }*/
+        //SLACK_TOKEN = credentials('slack-cred')
+        NEXUS_REPO_ID = 'nexus-releases'
+    }
 
     stages {
         stage('Checkout') {
@@ -51,6 +52,11 @@ pipeline {
                 sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=petclinic -Dsonar.projectName='petclinic'"
             }*/
         }
+        stage('Deploy to Nexus') {
+            steps {
+                sh "mvn deploy -s /var/lib/jenkins/.m2/settings.xml"
+            }
+        }
     }
 
     post {
@@ -77,6 +83,7 @@ pipeline {
 
     
 }
+
 
 
 
