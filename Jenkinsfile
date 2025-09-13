@@ -4,6 +4,7 @@ pipeline {
         maven 'Maven 3.6.3' // Ensure Maven is configured in Jenkins
         jdk 'JDK 11'       // Ensure JDK is configured in Jenkins
     }*/
+    
 
     environment {
         // Define any environment variables here
@@ -85,6 +86,7 @@ pipeline {
 
     
 }
+
 
 
 
