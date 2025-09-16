@@ -27,7 +27,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tag: ${{ secrets.DOCKERHUB_USERNAME }}/spring-petclinic:${{ github.run_number }}
+          tagس: ${{ secrets.DOCKERHUB_USERNAME }}/spring-petclinic:${{ github.run_number }}
       
 #      - name: Building
  #       run: |
