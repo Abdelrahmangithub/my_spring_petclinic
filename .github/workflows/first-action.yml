@@ -47,11 +47,11 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           with:
-            args: >
+            args: |
               -Dsonar.projectKey=petclinic_github_actions
               -Dsonar.projectName=petclinic_github_actions
               -Dsonar.sources=.
-        
+              -Dsonar.java.binaries=target/classes
      
        # FOR sonarqube
    #   - name: Set up JDK 17
