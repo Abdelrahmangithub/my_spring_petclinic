@@ -10,6 +10,7 @@ pipeline {
         //SLACK_TOKEN = credentials('slack-cred')
         NEXUS_REPO_ID = 'nexus-releases'
     }
+    
 
     stages {
         stage('Checkout') {
@@ -85,6 +86,7 @@ pipeline {
 
     
 }
+
 
 
 
