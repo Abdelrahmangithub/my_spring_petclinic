@@ -10,7 +10,6 @@ jobs:
   building:
     runs-on: ubuntu-latest
     steps:
-      
       - name: checkout repo
         uses: actions/checkout@v5.0.0
 
