@@ -26,10 +26,10 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-petclinic:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-petclinic:${{ github.run_number }} #commit best case 
 
       - name: Slack Notification
-        uses: slackapi/slack-github-action@v2.1.1
+        uses: slackapi/slack-github-action@v2.1.1 # TRY curl 
         with:
           webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
           webhook-type: incoming-webhook
