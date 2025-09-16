@@ -43,15 +43,15 @@ jobs:
        
       - name: Sonarqube
         uses: SonarSource/sonarqube-scan-action@v5.3.1
+        with:
+          args: >
+            -Dsonar.projectKey=petclinic_github_actions
+            -Dsonar.projectName=petclinic_github_actions
+            -Dsonar.sources=.
+            -Dsonar.java.binaries=target/classes
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          with:
-            args: |
-              -Dsonar.projectKey=petclinic_github_actions
-              -Dsonar.projectName=petclinic_github_actions
-              -Dsonar.sources=.
-              -Dsonar.java.binaries=target/classes
      
        # FOR sonarqube
    #   - name: Set up JDK 17
