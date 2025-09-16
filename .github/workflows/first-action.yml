@@ -25,12 +25,12 @@ jobs:
       - name: Run
         run: |
           echo "RUN ......"
-          docker rm -f petclinic_container
           docker build -t spring-petclinic .
           docker run -d -p 9193:9966 --name petclinic_container spring-petclinic
       
       
-
+#  docker rm -f petclinic_container
+          
 #  checkout:
  #   runs-on: ubuntu-latest
   #    steps: 
